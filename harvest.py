@@ -77,25 +77,43 @@ def make_melon_types():
     )
     yellow_watermelon.add_pairing("ice cream")
 
-    all_melon_types = [musk.name, casaba.name,
-                       crenshaw.name, yellow_watermelon.name]
+    all_melon_types = [musk, casaba,
+                       crenshaw, yellow_watermelon]
 
     return all_melon_types
-
-
-print(make_melon_types())
 
 
 def print_pairing_info(melon_types):
     """Prints information about each melon type's pairings."""
 
-    # Fill in the rest
+    for melon in melon_types:
+        print(f"{melon.name} pairs with:")
+        for pairing in melon.pairings:
+            print(f"- {pairing}")
+
+
+melon_list = make_melon_types()
+# print_pairing_info(melon_list)
+# print()
+# print()
 
 
 def make_melon_type_lookup(melon_types):
-    """Takes a list of MelonTypes and returns a dictionary of melon type by code."""
+    """Takes a list of MelonTypes and returns a dictionary of melon type by code.
 
-    # Fill in the rest
+    ex:
+    {self.code : objectname} --> {cas : casaba}
+
+    """
+
+    melon_code_dict = {}
+
+    for melon in melon_types:
+        melon_code_dict[melon.code] = melon
+    return melon_code_dict
+
+
+# print(make_melon_type_lookup(melon_list))
 
 
 ############
@@ -108,6 +126,21 @@ class Melon:
 
     # Fill in the rest
     # Needs __init__ and is_sellable methods
+    def __init__(self, type, shape_rating, color_rating, field, harvester):
+        self.type = type
+        self.shape_rating = shape_rating
+        self.color_rating = color_rating
+        self.field = field
+        self.harvester = harvester
+
+    def is_sellable(self):
+
+        is_sellable = False
+
+        if self.shape_rating > 5 and self.color_rating > 5 and self.field != 3:
+            is_sellable = True
+
+        return is_sellable
 
 
 def make_melons(melon_types):
