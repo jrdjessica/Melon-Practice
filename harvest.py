@@ -114,6 +114,7 @@ def make_melon_type_lookup(melon_types):
 
 
 # print(make_melon_type_lookup(melon_list))
+melons_by_id = make_melon_type_lookup((melon_list))
 
 
 ############
@@ -146,7 +147,85 @@ class Melon:
 def make_melons(melon_types):
     """Returns a list of Melon objects."""
 
-    # Fill in the rest
+    melon1 = Melon(
+        melons_by_id["yw"],
+        8,
+        7,
+        2,
+        "Sheila"
+    )
+
+    melon2 = Melon(
+        melons_by_id["yw"],
+        3,
+        4,
+        2,
+        "Sheila"
+    )
+
+    melon3 = Melon(
+        melons_by_id["yw"],
+        9,
+        8,
+        3,
+        "Sheila"
+    )
+
+    melon4 = Melon(
+        melons_by_id["cas"],
+        10,
+        6,
+        35,
+        "Sheila"
+    )
+
+    melon5 = Melon(
+        melons_by_id["cren"],
+        8,
+        9,
+        35,
+        "Michael"
+    )
+
+    melon6 = Melon(
+        melons_by_id["cren"],
+        8,
+        2,
+        35,
+        "Michael"
+    )
+
+    melon7 = Melon(
+        melons_by_id["cren"],
+        2,
+        3,
+        4,
+        "Michael"
+    )
+
+    melon8 = Melon(
+        melons_by_id["musk"],
+        6,
+        7,
+        4,
+        "Michael"
+    )
+
+    melon9 = Melon(
+        melons_by_id["yw"],
+        7,
+        10,
+        3,
+        "Sheila"
+    )
+
+    melon_harvest_list = [melon1, melon2, melon3,
+                          melon4, melon5, melon6, melon7, melon8, melon9]
+    return melon_harvest_list
+
+
+melon_harvest_list = make_melons(melon_list)
+print(melon_harvest_list)
 
 
 def get_sellability_report(melons):
