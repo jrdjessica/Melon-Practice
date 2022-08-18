@@ -127,8 +127,8 @@ class Melon:
 
     # Fill in the rest
     # Needs __init__ and is_sellable methods
-    def __init__(self, type, shape_rating, color_rating, field, harvester):
-        self.type = type
+    def __init__(self, melon_type, shape_rating, color_rating, field, harvester):
+        self.melon_type = melon_type
         self.shape_rating = shape_rating
         self.color_rating = color_rating
         self.field = field
@@ -241,4 +241,38 @@ def get_sellability_report(melons):
             f"Harvested by {melon.harvester} from Field {melon.field} {sellable}")
 
 
-get_sellability_report(melon_harvest_list)
+# get_sellability_report(melon_harvest_list)
+
+
+#################
+# FURTHER STUDY #
+#################
+
+# type, shape_rating, color_rating, field, harvester
+
+def read_file(textfile):
+    harvest_report_list = []
+
+    with open(textfile) as file:
+        for line in file:
+            harvest = line.rstrip()
+            harvest = harvest.split()
+            melon_type = harvest[5]
+            shape_rating = int(harvest[1])
+            color_rating = int(harvest[3])
+            field = int(harvest[-1])
+            harvester = harvest[-4]
+            harvested_melon = Melon(
+                melons_by_id[melon_type],
+                shape_rating,
+                color_rating,
+                field,
+                harvester
+            )
+            harvest_report_list.append(harvested_melon)
+
+    return harvest_report_list
+
+
+harvest_report_list = read_file("harvest_log.txt")
+get_sellability_report(harvest_report_list)
