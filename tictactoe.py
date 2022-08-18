@@ -23,6 +23,9 @@ class Board:
                 print("|")
                 print("------------")
 
+    def add_move(self, move, letter):
+        self.board_placement[move] = letter
+
 
 class Game:
     pass
@@ -32,8 +35,8 @@ board = Board()
 # board_placement = {1: ' X ', 2: ' X ', 3: " X ", 4: " X ",
 #                    5: " X ", 6: " X ", 7: " X ", 8: " X ", 9: " X "}
 board.display()
-board.board_placement = {1: ' O ', 2: ' X ', 3: " X ", 4: " X ",
-                         5: " X ", 6: " X ", 7: " X ", 8: " X ", 9: " X "}
+print()
+board.add_move(1, " O ")
 board.display()
 
 # Set up players
