@@ -1,5 +1,9 @@
+# https://fellowship.hackbrightacademy.com/materials/serft13/exercises/oo-practice-melons/
+
 class Player:
-    pass
+
+    def __init__(self, name):
+        self.player = name
 
 
 class Move:
@@ -28,16 +32,25 @@ class Board:
 
 
 class Game:
-    pass
+
+    def play_game(self):
+        self.player1_name = input('Player 1, input your name: ')
+        self.player2_name = input('Player 2, input your name: ')
+
+        player1 = Player()
+        player2 = Player()
+        board = Board()
+
+        while True:
+            board.display()
+            player1.add_move()
 
 
-board = Board()
-# board_placement = {1: ' X ', 2: ' X ', 3: " X ", 4: " X ",
-#                    5: " X ", 6: " X ", 7: " X ", 8: " X ", 9: " X "}
-board.display()
-print()
 board.add_move(1, " O ")
 board.display()
+
+# if __name__ == '__main__':
+
 
 # Set up players
 # Ask Player 1 name, assign x
@@ -97,9 +110,3 @@ board.display()
 | X | O | X |
 ------------
 """
-
-# board = {1: ' X ', 2: ' X ', 3: " X ", 4: " X ",
-#  5: " X ", 6: " X ", 7: " X ", 8: " X ", 9: " X "}
-
-
-# print(board_keys)
